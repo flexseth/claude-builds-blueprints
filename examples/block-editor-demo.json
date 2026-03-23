@@ -1,0 +1,25 @@
+{
+  "$schema": "https://playground.wordpress.net/blueprint-schema.json",
+  "landingPage": "/wp-admin/post-new.php",
+  "login": true,
+  "preferredVersions": { "php": "8.3", "wp": "latest" },
+  "features": { "networking": true },
+  "siteOptions": {
+    "blogname": "Block Editor Demo"
+  },
+  "steps": [
+    {
+      "step": "installPlugin",
+      "pluginData": {
+        "resource": "url",
+        "url": "https://example.com/my-block-plugin.zip",
+        "caption": "My Custom Block Plugin"
+      },
+      "options": { "activate": true }
+    },
+    {
+      "step": "wp-cli",
+      "command": "wp post create --post_title='Block Demo Page' --post_status='publish' --post_type='page'"
+    }
+  ]
+}
